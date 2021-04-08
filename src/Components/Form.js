@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-Form.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-}
+// Form.propTypes = {
+//     handleSubmit: PropTypes.func.isRequired,
+// }
 
 function Form(props) {
     const [inputValue, setInputValue] = useState(null);
