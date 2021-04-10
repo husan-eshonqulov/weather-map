@@ -16,7 +16,7 @@ function DesIcon(props) {
 
     useEffect(() => {
         setDescription(props.Description);
-    });
+    }, [props.Description]);
 
     useEffect(() => {
         if (description !== null) {
