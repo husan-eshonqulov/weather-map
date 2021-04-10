@@ -1,51 +1,43 @@
 import Form from '../Components/Form';
-import { fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 
-describe('Form', () => {
-    test('input\'s initial value is empty', () => {
+describe('<Form />', () => {
+    test('input\'s initial value should be empty', () => {
         render(<Form />);
         const input = screen.getByRole('textbox');
+
         expect(input.value).toBe('');
     });
 
-
-    test('input value is updated correctly', () => {
+    test('input\'s value should updat correctly', () => {
         render(<Form />);
-
         const input = screen.getByRole('textbox');
-        userEvent.type(input, 'Tashkent');
 
-        expect(input.value).toBe('Tashkent');
+        fireEvent.change(input, { target: { value: 'tashkent' } });
+
+        expect(input.value).toBe('tashkent');
     });
 
-    // test('calls the onChange callback handler', () => {
-    //     const onClick = jest.fn();
 
-    //     render(<Form onClick={onClick} />);
-    //     const input = screen.getByRole('textbox');
+    test('handleSubmit function should be called', () => {
+        const onSubmit = jest.fn();
+        render(<Form handleSubmit={onSubmit} />);
+        const button = screen.getByRole('button');
 
-    //     fireEvent.change(input, { target: { value: 'New York' } });
+        fireEvent.click(button);
 
-    //     const submitButton = screen.getByRole('button');
+        expect(onSubmit).toHaveBeenCalled();
+    });
 
-    //     fireEvent.click(submitButton);
+    test('handleSubmit function should be called when input\'s value updates', () => {
+        const onSubmit = jest.fn();
+        render(<Form handleSubmit={onSubmit} />);
+        const input = screen.getByRole('textbox');
+        const button = screen.getByRole('button');
 
-    //     expect(onClick).toHaveBeenCalledTimes(1);
-    // });
+        fireEvent.change(input, { target: { value: '2032' } });
+        fireEvent.click(button);
+
+        expect(onSubmit).toHaveBeenCalled();
+    });
 });
-
-
-// test("calls the onChange callback handler", () => {
-//     const onChange = jest.fn();
-
-//     render(
-//         <Search onChange={onChange}/>
-//     );
-
-//     fireEvent.change(screen.getByRole('textbox'), {
-//         target: { value: 'Uzbekistan' },
-//     });
-
-//     expect(onChange).toHaveBeenCalledTimes(1);
-// });

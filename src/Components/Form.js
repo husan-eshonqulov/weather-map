@@ -19,7 +19,10 @@ function Form(props) {
 
     return (
         <div className="container">
-            <div className="row d-flex justify-content-center">
+            <form
+                onSubmit={(event) => event.preventDefault()}
+                className="row d-flex justify-content-center"
+            >
                 <div className="col-sm-10">
                     <input
                         className="form-control"
@@ -40,7 +43,7 @@ function Form(props) {
                         Submit
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

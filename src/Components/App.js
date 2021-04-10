@@ -6,7 +6,7 @@ import Response from './Response';
 function App() {
     const [cityName, setCityName] = useState(null);
 
-    const handleSubmit = (cityName) => {
+    function handleSubmit(cityName) {
         setCityName(cityName);
     }
 

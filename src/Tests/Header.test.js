@@ -1,17 +1,18 @@
 import Header from '../Components/Header';
 import { render, screen } from '@testing-library/react';
 
-describe('Header', () => {
-    test('whether or not Header is empty', () => {
+describe('<Header />', () => {
+    test('heading should not be empty', () => {
         render(<Header />);
-        const element = screen.getByTestId('custom-element');
-        expect(element.textContent).not.toHaveLength(0);
+        const heading = screen.getByTestId('custom-element');
+
+        expect(heading.textContent).not.toHaveLength(0);
     });
 
-    test('whether or not Header is assignment text', () => {
-        render(<Header />);
-        const element = screen.getByTestId('custom-element');
-        expect(element.textContent).toBe('OpenWeather Map');
-    });
+    // test('heading should the same excatly text', () => {
+    //     render(<Header />);
+    //     const heading = screen.getByTestId('custom-element');
 
+    //     expect(heading.textContent).toBe('OpenWeather Map');
+    // });
 });
