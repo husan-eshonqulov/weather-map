@@ -1,3 +1,3 @@
-# Loyihaning maqsadi
+# Weather Info
 
-Bu dastur orqali siz istalgan shaharning ayni paytdagi ob-havo ma'lumotlarini olishingiz mumkin
+With this app, you can find out the current weather which related with your input city.
